@@ -1,4 +1,11 @@
-export default function HoverLink({ children, id, bgColor = 'bg-black', textColor = 'text-white', className = '', onClick }) {
+export default function HoverLink({
+	children,
+	id,
+	bgColor = 'bg-black',
+	textColor = 'text-white',
+	className = '',
+	onClick = () => {}
+}) {
 	const defaultClass = !className.length ? 'inline-block mt-4' : className;
 	return (
 		<button

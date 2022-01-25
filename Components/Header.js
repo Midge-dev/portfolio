@@ -27,10 +27,10 @@ export default function Header({refs, scrollTo}) {
 			<nav>
 				<ul className='flex gap-4'>
 				<li>
-						<HoverLink id='aboutme' onClick={executeScroll}>About Me</HoverLink>
+						<HoverLink bgColor="bg-transparant" id='aboutme' onClick={executeScroll}>About Me</HoverLink>
 					</li>
 					<li>
-						<HoverLink id='contact' onClick={executeScroll}>Contact</HoverLink>
+						<HoverLink bgColor="bg-transparant" id='contact' onClick={executeScroll} >Contact</HoverLink>
 					</li>
 					
 				</ul>
