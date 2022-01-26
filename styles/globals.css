@@ -37,8 +37,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
   z-index: 1;
   top: 20rem;
   box-sizing: border-box;
-  height: 5vw;
-  width: 5vw;
+  height: 2vw;
+  width: 2vw;
   border-style: solid;
   border-color: black;
   border-width: 0px 1px 1px 0px;
@@ -58,4 +58,33 @@ a {
 a:hover {
   /* transform: translateY(-5px); */
 
+}
+
+.ReactModal__Content {
+  top: 120px !important;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+.modalButton {
+  
 }

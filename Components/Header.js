@@ -4,7 +4,7 @@ import { findDOMNode } from 'react-dom';
 import myImage from '../public/FB_IMG_1620331899007.jpg';
 import HoverLink from './HoverLink';
 
-export default function Header({refs, scrollTo}) {
+export default function Header({refs, scrollTo, openModal}) {
 
 	const executeScroll = (id) => {
 		if (id === refs.aboutSectionRef.current.id) {
@@ -17,13 +17,13 @@ export default function Header({refs, scrollTo}) {
 
 	return (
 		<header className="text-stone-200 flex bg-stone-800 p-4 sticky top-0 justify-between items-center z-10">
-			<Link href="/">
+			<div onClick={() => openModal()}>
 				<a className="text-xl font-bold flex items-center pl-8">
 					{/* <img src={''} alt="Sean" /> */}
 					<Image src={myImage} width={56} height={56} className=" rounded-full" alt='Sean' />
 					<span className='ml-4'>Sean Midgley</span>
 				</a>
-			</Link>
+			</div>
 			<nav>
 				<ul className='flex gap-4'>
 				<li>
