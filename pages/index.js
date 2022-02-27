@@ -6,6 +6,18 @@ import HoverLink from '../Components/HoverLink';
 import { useRef, useState } from 'react';
 import Header from '../Components/Header';
 import ReactModal from 'react-modal';
+import { Document, Page, pdfjs } from 'react-pdf';
+// import pdf from "../documents/SeanMidgley-Dev.pdf"
+import dynamic from 'next/dynamic';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
+const FileViewer = dynamic(() => import('react-file-viewer'), {
+	ssr: false
+});
+
+export function Index() {
+	return <FileViewer fileType="pdf" filePath="/SeanMidgley-Dev.pdf" />;
+}
 
 const mySkills = [
 	'HTML',
@@ -28,6 +40,7 @@ const scrollTo = (ref) => {
 export default function Home() {
 	const contactSectionRef = useRef(null);
 	const aboutSectionRef = useRef(null);
+	const projectSectionRef = useRef(null);
 	const executeScroll = (id) => {
 		if (id === aboutSectionRef.current.id) {
 			scrollTo(aboutSectionRef);
@@ -41,12 +54,18 @@ export default function Home() {
 
 			// window.scrollTo({top: contactSectionRef.current.offsetTop -30, behavior: 'smooth'})
 		}
+
+		if (id === projectSectionRef.current.id) {
+			console.log(id, projectSectionRef)
+			scrollTo(projectSectionRef);
+		}
 	};
 	const toggleModal = () => {
 		handleModal(!isModalOpen);
 	};
 
 	const [ isModalOpen, handleModal ] = useState(false);
+	// const [pageNumber, setPageNumber] = useState(1);
 
 	return (
 		<div className={`${isModalOpen ? 'overlay' : ''}`}>
@@ -56,14 +75,23 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<ReactModal preventScroll={true} isOpen={isModalOpen} closeTimeoutMS={200} contentLabel="Information" id="modal">
-				<h1>Fuckin MODAL</h1>
-				<button className="modalButton" onClick={toggleModal}>
+			<ReactModal
+				preventScroll={true}
+				isOpen={isModalOpen}
+				closeTimeoutMS={200}
+				contentLabel="Information"
+				id="modal"
+			>
+				{/* <Index /> */}
+				<Document file="./SeanMidgley-Dev.pdf">
+					<Page pageNumber={1} />
+				</Document>
+				<button className="modalButton absolute top-0 right-0" onClick={toggleModal}>
 					X
 				</button>
 			</ReactModal>
 
-			<Header openModal={toggleModal} refs={{ aboutSectionRef, contactSectionRef }} scrollTo={scrollTo} />
+			<Header openModal={toggleModal} refs={{ aboutSectionRef, contactSectionRef, projectSectionRef }} scrollTo={scrollTo} />
 			<main>
 				<section id="top" className="bg-stone-200 h-screen w-full flex justify-center items-center ">
 					<div className="text-center">
@@ -72,37 +100,31 @@ export default function Home() {
 						<HoverLink id="contact" onClick={executeScroll}>
 							Get in touch!
 						</HoverLink>
-						{/* <a href="#contact" className="inline-block bg-black text-white py-2 px-8 mt-4 rounded-xl font-bold duration-300 transition-transform ease-out hover:-translate-y-2">Get in touch!</a> */}
 
 						<div className="arrow" onClick={() => executeScroll('aboutme')} />
 					</div>
 				</section>
 				<section className="bg-stone-200 h-screen w-full pt-20" id="aboutme" ref={aboutSectionRef}>
 					<div className="w-full text-center mb-16">
-						<h2 className="font-bold uppercase text-3xl ">About Me</h2>
+						<h2 className="font-bold uppercase text-3xl">About Me</h2>
 						<p className="max-w-prose mx-auto mt-4">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-							labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-							laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-							voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Talented and creative Full Stack Developer with a broad technical skill set. Excellent communicator, easily interacting with diverse groups of people in the implementation of new web applications. Known for being technically astute in delivering fully functional software applications and websites. Educated and highly knowledgeable in network development, software engineering, and front end frameworks. Strong written, verbal, and interpersonal communication skills. Skilled in working as part of a collaborative team or independently as a disciplined self-starter.
 						</p>
 					</div>
 					<div className="grid grid-cols-2 mx-auto w-full container">
 						<div className="pr-6">
 							<h3 className="font-bold text-xl">Get to know me!</h3>
 							<p className="mt-6">
-								Hey! It&apos;s John Doe and Hey, I&apos;m a Frontend Web Developer located in Los
-								Angeles. I&apos;ve done remote projects for agencies, consulted for startups, and
+								Hey! It&apos;s Sean Midgley and I&apos;m a Full Stack Web Developer located in Las
+								Vegas. I build really cool websites like this one! I&apos;ve done remote freelance projects for community members, consulted for startups, and
 								collaborated with talented people to create digital products for both business and
-								consumer use.
+								consumer use. I love to code! Most recently I graduated from the Full Stack Web and Mobile Development Bootcamp offered by Nucamp where I was able to expand my working knowledge of different technologies and programming languages.
 							</p>
 							<p className="mt-4">
 								Hey, I&apos;m a bit of a digital product junky. Over the years, I&apos;ve used hundreds
-								of web and mobile apps in different industries and verticals. Feel free to contact me
-								here.
+								of web and mobile apps in different industries and verticals. Feel free to contact me or download my resume!
 							</p>
-							<HoverLink id="contact" onClick={executeScroll}>
+							<HoverLink className='mt-4 mx-auto' id="contact" onClick={executeScroll}>
 								Contact
 							</HoverLink>
 							{/* <button className="bg-black text-white py-2 px-8 mt-4 rounded-xl font-bold">Contact</button> */}
@@ -116,6 +138,9 @@ export default function Home() {
 							</ul>
 						</div>
 					</div>
+				</section>
+				<section className="bg-white text-black w-full h-screen pt-10" ref={projectSectionRef} id="projects">
+					<h1>PROJECTS</h1>
 				</section>
 				<section className="bg-stone-800 text-white h-screen w-full pt-10" id="contact" ref={contactSectionRef}>
 					<div className="w-full text-center mb-16 pt-20">
@@ -132,17 +157,8 @@ export default function Home() {
 				</section>
 			</main>
 
-			<footer>
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{' '}
-					<span>
-						<Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-					</span>
-				</a>
+			<footer className='h-[12rem] bg-black'>
+				
 			</footer>
 		</div>
 	);

@@ -85,6 +85,6 @@ a:hover {
   transform: translateY(-100px);
 }
 
-.modalButton {
-  
+textarea {
+  resize: none;
 }

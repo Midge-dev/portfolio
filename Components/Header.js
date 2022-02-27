@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import Link from 'next/link';
 import { findDOMNode } from 'react-dom';
 import myImage from '../public/FB_IMG_1620331899007.jpg';
@@ -12,6 +12,9 @@ export default function Header({refs, scrollTo, openModal}) {
 		}
 		if (id === refs.contactSectionRef.current.id) {
 			scrollTo(refs.contactSectionRef);
+		}
+		if (id === refs.projectSectionRef.current.id) {
+			scrollTo(refs.projectSectionRef)
 		}
 	};
 
@@ -31,6 +34,9 @@ export default function Header({refs, scrollTo, openModal}) {
 					</li>
 					<li>
 						<HoverLink bgColor="bg-transparant" id='contact' onClick={executeScroll} >Contact</HoverLink>
+					</li>
+					<li>
+						<HoverLink bgColor="bg-transparant" id='projects' onClick={executeScroll} >Projects</HoverLink>
 					</li>
 					
 				</ul>
