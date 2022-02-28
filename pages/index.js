@@ -170,16 +170,32 @@ export default function Home() {
 					<div className="w-full text-center mb-16 pt-20">
 						<h2 className="font-bold uppercase text-3xl ">Contact</h2>
 						<p className="max-w-prose mx-auto mt-4">
-							Shoot me a message! I'd be delighted to hear from you. You can also find additional contact information on my resume. I'll respond to you as quickly as possible. Thanks!
+							Shoot me a message! I&apos;d be delighted to hear from you. You can also find additional contact information on my resume. I'll respond to you as quickly as possible. Thanks!
 						</p>
 					</div>
 					<Form />
 				</section>
 			</main>
 
-			<footer className="h-[12rem] bg-black text-white">
+			<footer className="h-[12rem] bg-black text-white flex justify-center">
+				<div className='flex w-[50%] justify-between h-full'>
+					<div className='mt-6 mb-6'>
+						<h1 className='uppercase font-bold text-xl'>Sean Midgley</h1>
+						<p>Developed and deployed by me</p>
+					</div>
+					<div>
+						<div className='mt-6 mb-6'>
+						<h1 className='uppercase font-bold text-xl w-52 text-center'>Social</h1>
+						</div>
+						<div className='flex justify-between'>
+						<SocialIcon url="https://linkedin.com/in/seancmidgley" bgColor="white" style={{ height: 35, width: 35 }} />
+						<SocialIcon url="https://github.com/Midge-dev" bgColor="white" style={{ height: 35, width: 35 }} />
+						<SocialIcon url="https://twitter.com/midge_dev" bgColor="white" style={{ height: 35, width: 35 }} />
+						</div>
+					</div>
+				</div>
 				<div>
-					<h1>Footer</h1>
+				<hr className='bg-white' />
 				</div>
 			</footer>
 		</div>
