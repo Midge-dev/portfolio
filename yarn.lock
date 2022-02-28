@@ -2057,6 +2057,13 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
+react-social-icons@^5.11.0:
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/react-social-icons/-/react-social-icons-5.11.0.tgz#98d1e76023a6422439f7ca2d6316f50cec4fec7b"
+  integrity sha512-hlgNMnWgkdRZZFPm8wjsRGQsSYdPC+uqxiJVpUF8Tc83OGiSQ7qtYN+rFwWubYGJ+JfwgpAg9ypx5duJfLZIfg==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-visibility-sensor@^5.0.2:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-visibility-sensor/-/react-visibility-sensor-5.1.1.tgz#5238380960d3a0b2be0b7faddff38541e337f5a9"

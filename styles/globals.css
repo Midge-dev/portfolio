@@ -61,7 +61,9 @@ a:hover {
 }
 
 .ReactModal__Content {
-  top: 120px !important;
+  top: 10% !important;
+  left: 30% !important;
+  right: 30% !important;
 }
 
 .overlay {
