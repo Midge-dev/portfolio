@@ -6,7 +6,7 @@ import HoverLink from '../Components/HoverLink';
 import { useRef, useState } from 'react';
 import Header from '../Components/Header';
 import ReactModal from 'react-modal';
-import { Document, Page, pdfjs } from 'react-pdf';
+import { Document, Page, pdfjs} from 'react-pdf';
 import { SocialIcon } from 'react-social-icons';
 import dynamic from 'next/dynamic';
 
@@ -28,10 +28,22 @@ const mySkills = [
 	'Redux',
 	'NextJS',
 	'jQuery',
+	'NodeJS',
 	'Bootstrap',
 	'Tailwind CSS',
-	'Git'
+	'Git',
+	'Bash',
+	'Android',
+	'IOS',
+	'Linux',
+	'Windows'
 ];
+
+const socialLinks = [
+	'https://linkedin.com/in/seancmidgley',
+	'https://github.com/Midge-dev',
+	'https://twitter.com/midge_dev'
+]
 
 const scrollTo = (ref) => {
 	window.scrollTo({ top: ref.current.offsetTop - 30, behavior: 'smooth' });
@@ -60,7 +72,6 @@ export default function Home() {
 	};
 
 	const [ isModalOpen, handleModal ] = useState(false);
-	// const [pageNumber, setPageNumber] = useState(1);
 
 	return (
 		<div className={`${isModalOpen ? 'overlay' : ''}`}>
@@ -70,27 +81,19 @@ export default function Home() {
 				<link rel="icon" href="" />
 			</Head>
 
-			<ReactModal
+			{/* <ReactModal
 				isOpen={isModalOpen}
 				closeTimeoutMS={200}
-				contentLabel="Information"
+				contentLabel="Resume"
 				id="modal"
 				shouldCloseOnOverlayClick={true}
 				onRequestClose={toggleModal}
-				shouldReturnFocusAfterClose={
-					true
-					/* Boolean indicating if the modal should restore focus to the element
-					 that had focus prior to its display. */
-				}
+				shouldReturnFocusAfterClose={true}
 			>
-				{/* <Index /> */}
-				<Document  file="./SeanMidgley-Dev.pdf" options={{ maxImageSize: -1 }}>
-					<Page pageNumber={1} height={1000} width={900}/>
+				<Document file="./SeanMidgley-Dev.pdf" options={{ maxImageSize: -1 }}>
+					<Page pageNumber={1} renderMode={"svg"} />
 				</Document>
-				{/* <button className="absolute top-1 right-2 bg-black text-white w-6 h-6 font-bold rounded-lg mt-3" onClick={toggleModal}>
-					X
-				</button> */}
-			</ReactModal>
+			</ReactModal> */}
 
 			<Header
 				openModal={toggleModal}
@@ -106,16 +109,17 @@ export default function Home() {
 							Get in touch!
 						</HoverLink>
 						<div className='mx-auto h-[12rem] w-52 flex justify-between items-end'>
-						<SocialIcon url="https://linkedin.com/in/seancmidgley" bgColor="black" />
-						<SocialIcon url="https://github.com/Midge-dev" bgColor="black" />
-						<SocialIcon url="https://twitter.com/midge_dev" bgColor="black" />
+							{socialLinks.map((url) => {
+								return <SocialIcon key={url} url={url} bgColor="black" target="_blank" rel="noopener noreferrer" />
+							})}
 						</div>
 						<div className="arrow" onClick={() => executeScroll('aboutme')} />
 					</div>
 				</section>
-				<section className="bg-stone-200 h-screen w-full pt-20" id="aboutme" ref={aboutSectionRef}>
-					<div className="w-full text-center mb-16">
-						<h2 className="font-bold uppercase text-3xl">About Me</h2>
+				<section className="bg-stone-200 h-full w-full pt-20" id="aboutme" ref={aboutSectionRef}>
+					<div className="w-full text-center mb-16 p-4">
+						<h2 className="font-bold uppercase text-4xl">About Me</h2>
+						<hr className='text-black w-[2%] mx-auto mt-4 mb-4' />
 						<p className="max-w-prose mx-auto mt-4">
 							Talented and creative Full Stack Developer with a broad technical skill set. Excellent
 							communicator, easily interacting with diverse groups of people in the implementation of new
@@ -126,9 +130,9 @@ export default function Home() {
 							a disciplined self-starter.
 						</p>
 					</div>
-					<div className="grid grid-cols-2 mx-auto w-full container">
-						<div className="pr-6">
-							<h3 className="font-bold text-xl">Get to know me!</h3>
+					<div className="grid md:grid-cols-2 mx-auto h-full w-full container">
+						<div className="md:pr-6 p-4">
+							<h3 className="font-bold text-xl ">Get to know me!</h3>
 							<p className="mt-6">
 								Hey! It&apos;s Sean Midgley and I&apos;m a Full Stack Web Developer located in Las
 								Vegas. I build really cool websites like this one! I&apos;ve done remote freelance
@@ -143,18 +147,17 @@ export default function Home() {
 								of web and mobile apps in different industries and verticals. Feel free to contact me or
 								download my resume!
 							</p>
-							<div className='mt-8'>
-								<HoverLink className="mt-4 mx-auto" id="contact" onClick={executeScroll}>
+							<div className='mt-8 flex gap-2 justify-between'>
+								<HoverLink className="" id="contact" onClick={executeScroll}>
 									Contact
 								</HoverLink>
-								<HoverLink className="ml-6" onClick={toggleModal}>
-									Download Resume
+								<HoverLink className="" onClick={toggleModal}>
+									View Resume
 								</HoverLink>
 							</div>
-							{/* <button className="bg-black text-white py-2 px-8 mt-4 rounded-xl font-bold">Contact</button> */}
 						</div>
-						<div>
-							<h3 className="font-bold text-xl">Skills</h3>
+						<div className='p-4'>
+							<h3 className="font-bold text-xl">Technical Skills</h3>
 							<ul className="mt-6 mb-6">
 								{mySkills.map((skill) => {
 									return <Pill key={skill}>{skill}</Pill>;
@@ -163,39 +166,42 @@ export default function Home() {
 						</div>
 					</div>
 				</section>
-				<section className="bg-white text-black w-full h-screen pt-20" ref={projectSectionRef} id="projects">
-					<h2 className="text-3xl font-bold text-center">PROJECTS</h2>
+				<section className="bg-white text-black w-full h-screen mt-20" ref={projectSectionRef} id="projects">
+					<h2 className="text-4xl font-bold text-center">PROJECTS</h2>
+					<hr className='bg-black w-[2%] mx-auto mt-4 mb-4' />
 				</section>
 				<section className="bg-stone-800 text-white h-screen w-full pt-10" id="contact" ref={contactSectionRef}>
 					<div className="w-full text-center mb-16 pt-20">
-						<h2 className="font-bold uppercase text-3xl ">Contact</h2>
+						<h2 className="font-bold uppercase text-4xl ">Contact</h2>
+						<hr className='w-[2%] mx-auto mt-4 mb-4 rounded' />
 						<p className="max-w-prose mx-auto mt-4">
-							Shoot me a message! I&apos;d be delighted to hear from you. You can also find additional contact information on my resume. I'll respond to you as quickly as possible. Thanks!
+							Shoot me a message! I&apos;d be delighted to hear from you. You can also find additional contact information on my resume. I&apos;ll respond to you as quickly as possible. Thanks!
 						</p>
 					</div>
 					<Form />
 				</section>
 			</main>
 
-			<footer className="h-[12rem] bg-black text-white flex justify-center">
-				<div className='flex w-[50%] justify-between h-full'>
+			<footer className="flex-col h-[auto] bg-black text-white flex justify-center">
+				<div className='container mx-auto'>
+				<div className='flex md:flex-row md:justify-between md:w-full flex-col sm:w-[50%] items-center h-full'>
 					<div className='mt-6 mb-6'>
 						<h1 className='uppercase font-bold text-xl'>Sean Midgley</h1>
 						<p>Developed and deployed by me</p>
+						<br />
+						<p>sean.midgley.dev@gmail.com</p>
 					</div>
 					<div>
 						<div className='mt-6 mb-6'>
 						<h1 className='uppercase font-bold text-xl w-52 text-center'>Social</h1>
 						</div>
 						<div className='flex justify-between'>
-						<SocialIcon url="https://linkedin.com/in/seancmidgley" bgColor="white" style={{ height: 35, width: 35 }} />
-						<SocialIcon url="https://github.com/Midge-dev" bgColor="white" style={{ height: 35, width: 35 }} />
-						<SocialIcon url="https://twitter.com/midge_dev" bgColor="white" style={{ height: 35, width: 35 }} />
+						{socialLinks.map((url) => {
+								return <SocialIcon key={url} url={url} bgColor="white" style={{ height: 35, width: 35}} target="_blank" rel="noopener noreferrer" />
+							})}
 						</div>
 					</div>
 				</div>
-				<div>
-				<hr className='bg-white' />
 				</div>
 			</footer>
 		</div>

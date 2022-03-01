@@ -19,16 +19,16 @@ export default function Header({refs, scrollTo, openModal}) {
 	};
 
 	return (
-		<header className="text-stone-200 flex bg-stone-800 p-4 sticky top-0 justify-between items-center z-10">
-			<div onClick={() => openModal()}>
-				<a className="text-xl font-bold flex items-center pl-8">
+		<header className="text-stone-200 flex flex-wrap md:flex-nowrap bg-stone-800 p-4 sticky top-0 justify-between items-center z-10">
+			<div className='w-full' onClick={() => openModal()}>
+				<a className="text-xl font-bold flex items-center md:pl-8 items-center justify-center">
 					{/* <img src={''} alt="Sean" /> */}
 					<Image src={myImage} width={56} height={56} className=" rounded-full" alt='Sean' />
 					<span className='ml-4'>Sean Midgley</span>
 				</a>
 			</div>
-			<nav>
-				<ul className='flex gap-4'>
+			<nav className='w-full'>
+				<ul className='flex md:flex-row flex-col gap-4 items-center '>
 				<li>
 						<HoverLink bgColor="bg-transparant" id='aboutme' onClick={executeScroll}>About Me</HoverLink>
 					</li>
