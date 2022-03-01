@@ -5,7 +5,7 @@ import Form from '../Components/Form';
 import HoverLink from '../Components/HoverLink';
 import { useRef, useState } from 'react';
 import Header from '../Components/Header';
-import ReactModal from 'react-modal';
+
 import { Document, Page, pdfjs} from 'react-pdf';
 import { SocialIcon } from 'react-social-icons';
 import dynamic from 'next/dynamic';
@@ -151,8 +151,8 @@ export default function Home() {
 								<HoverLink className="" id="contact" onClick={executeScroll}>
 									Contact
 								</HoverLink>
-								<HoverLink className="" onClick={toggleModal}>
-									View Resume
+								<HoverLink type='link' url={"../public/SeanMidgley-Dev.pdf"}>
+									Download Resume
 								</HoverLink>
 							</div>
 						</div>
