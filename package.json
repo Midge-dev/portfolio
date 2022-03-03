@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@dhaiwat10/react-link-preview": "^1.12.2",
     "cross-env": "^7.0.3",
     "next": "^12.0.8",
     "react": "17.0.2",

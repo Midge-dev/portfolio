@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Pill from '../Components/Pill';
+import Project from '../Components/Project';
 import Form from '../Components/Form';
 import HoverLink from '../Components/HoverLink';
 import { useRef, useState } from 'react';
@@ -167,8 +168,13 @@ export default function Home() {
 					</div>
 				</section>
 				<section className="bg-white text-black w-full h-screen mt-20" ref={projectSectionRef} id="projects">
+					<div>
 					<h2 className="text-4xl font-bold text-center">PROJECTS</h2>
 					<hr className='bg-black w-[2%] mx-auto mt-4 mb-4' />
+					</div>
+					<div>
+						<Project url="https://edwardwells.net/" />
+					</div>
 				</section>
 				<section className="bg-stone-800 text-white h-screen w-full pt-10" id="contact" ref={contactSectionRef}>
 					<div className="w-full text-center mb-16 pt-20">
