@@ -47,8 +47,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
 }
 
 .arrow:hover {
-  border-bottom-width: 4px;
-  border-right-width: 4px;
+  border-bottom-width: 3px;
+  border-right-width: 3px;
 }
 
 
@@ -73,7 +73,7 @@ textarea {
 
 @keyframes pulse-animation {
   0% {
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.3);
     
   }
   100% {
