@@ -20,7 +20,7 @@ export default function Header({refs, scrollTo, openModal}) {
 
 	return (
 		<header className="text-stone-200 flex flex-wrap md:flex-nowrap bg-stone-800 p-4 sticky top-0 justify-between items-center z-10">
-			<div className='w-full' onClick={() => openModal()}>
+			<div className='w-full' >
 				<a className="text-xl font-bold flex items-center md:pl-8 items-center justify-center">
 					{/* <img src={''} alt="Sean" /> */}
 					<Image src={myImage} width={56} height={56} className=" rounded-full" alt='Sean' />

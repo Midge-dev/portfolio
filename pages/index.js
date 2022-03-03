@@ -7,7 +7,7 @@ import HoverLink from '../Components/HoverLink';
 import { useRef, useState } from 'react';
 import Header from '../Components/Header';
 
-import { Document, Page, pdfjs} from 'react-pdf';
+import { Document, Page, pdfjs } from 'react-pdf';
 import { SocialIcon } from 'react-social-icons';
 import dynamic from 'next/dynamic';
 
@@ -44,7 +44,24 @@ const socialLinks = [
 	'https://linkedin.com/in/seancmidgley',
 	'https://github.com/Midge-dev',
 	'https://twitter.com/midge_dev'
-]
+];
+
+const projects = [
+	{
+		url: 'https://www.jackofallfades.co/',
+		fallBackImageSrc: 'https://www.jackofallfades.co/beardedclear.1e2f24cb.png',
+		title: 'Jack of All Fades',
+		description:
+			'This project was developed for a local business in the Las Vegas area in order to facilitate scheduling and booking of styling services online.'
+	},
+	{
+		url: 'https://www.edwardwells.net/',
+		fallBackImageSrc: 'https://www.edwardwells.net/wells8.jpg',
+		title: 'In memory of Edward Wells',
+		description:
+			'This project was developed in memory of a dear friend allowing loved ones and friends to dynamically leave comments'
+	}
+];
 
 const scrollTo = (ref) => {
 	window.scrollTo({ top: ref.current.offsetTop - 30, behavior: 'smooth' });
@@ -82,25 +99,7 @@ export default function Home() {
 				<link rel="icon" href="" />
 			</Head>
 
-			{/* <ReactModal
-				isOpen={isModalOpen}
-				closeTimeoutMS={200}
-				contentLabel="Resume"
-				id="modal"
-				shouldCloseOnOverlayClick={true}
-				onRequestClose={toggleModal}
-				shouldReturnFocusAfterClose={true}
-			>
-				<Document file="./SeanMidgley-Dev.pdf" options={{ maxImageSize: -1 }}>
-					<Page pageNumber={1} renderMode={"svg"} />
-				</Document>
-			</ReactModal> */}
-
-			<Header
-				openModal={toggleModal}
-				refs={{ aboutSectionRef, contactSectionRef, projectSectionRef }}
-				scrollTo={scrollTo}
-			/>
+			<Header refs={{ aboutSectionRef, contactSectionRef, projectSectionRef }} scrollTo={scrollTo} />
 			<main>
 				<section id="top" className="bg-stone-200 h-screen w-full flex justify-center items-center ">
 					<div className="text-center">
@@ -109,18 +108,26 @@ export default function Home() {
 						<HoverLink id="contact" onClick={executeScroll}>
 							Get in touch!
 						</HoverLink>
-						<div className='mx-auto h-[12rem] w-52 flex justify-between items-end'>
+						<div className="mx-auto h-[12rem] w-52 flex justify-between items-end drop-shadow-md">
 							{socialLinks.map((url) => {
-								return <SocialIcon key={url} url={url} bgColor="black" target="_blank" rel="noopener noreferrer" />
+								return (
+									<SocialIcon
+										key={url}
+										url={url}
+										bgColor="black"
+										target="_blank"
+										rel="noopener noreferrer"
+									/>
+								);
 							})}
 						</div>
-						<div className="arrow" onClick={() => executeScroll('aboutme')} />
+						<div className="arrow pulse" onClick={() => executeScroll('aboutme')} />
 					</div>
 				</section>
 				<section className="bg-stone-200 h-full w-full pt-20" id="aboutme" ref={aboutSectionRef}>
 					<div className="w-full text-center mb-16 p-4">
 						<h2 className="font-bold uppercase text-4xl">About Me</h2>
-						<hr className='text-black w-[2%] mx-auto mt-4 mb-4' />
+						<hr className="text-black w-[2%] mx-auto mt-4 mb-4" />
 						<p className="max-w-prose mx-auto mt-4">
 							Talented and creative Full Stack Developer with a broad technical skill set. Excellent
 							communicator, easily interacting with diverse groups of people in the implementation of new
@@ -131,7 +138,7 @@ export default function Home() {
 							a disciplined self-starter.
 						</p>
 					</div>
-					<div className="grid md:grid-cols-2 mx-auto h-full w-full container">
+					<div className="grid md:grid-cols-2 mx-auto h-full w-full container py-12">
 						<div className="md:pr-6 p-4">
 							<h3 className="font-bold text-xl ">Get to know me!</h3>
 							<p className="mt-6">
@@ -148,16 +155,16 @@ export default function Home() {
 								of web and mobile apps in different industries and verticals. Feel free to contact me or
 								download my resume!
 							</p>
-							<div className='mt-8 flex gap-2 justify-between'>
+							<div className="mt-8 flex gap-2 justify-between">
 								<HoverLink className="" id="contact" onClick={executeScroll}>
 									Contact
 								</HoverLink>
-								<HoverLink type='link' url={"../public/SeanMidgley-Dev.pdf"}>
+								<HoverLink type="link" url={'../public/SeanMidgley-Dev.pdf'}>
 									Download Resume
 								</HoverLink>
 							</div>
 						</div>
-						<div className='p-4'>
+						<div className="p-4">
 							<h3 className="font-bold text-xl">Technical Skills</h3>
 							<ul className="mt-6 mb-6">
 								{mySkills.map((skill) => {
@@ -167,21 +174,34 @@ export default function Home() {
 						</div>
 					</div>
 				</section>
-				<section className="bg-white text-black w-full h-screen mt-20" ref={projectSectionRef} id="projects">
+				<section className="bg-white text-black w-full md:h-auto mt-20" ref={projectSectionRef} id="projects">
 					<div>
-					<h2 className="text-4xl font-bold text-center">PROJECTS</h2>
-					<hr className='bg-black w-[2%] mx-auto mt-4 mb-4' />
+						<h2 className="text-4xl font-bold text-center">PROJECTS</h2>
+						<hr className="bg-black w-[2%] mx-auto mt-4 mb-4" />
 					</div>
-					<div>
-						<Project url="https://edwardwells.net/" />
+					<div className="container mx-auto">
+						<div className="flex flex-col gap-4 ">
+							{projects.map((project) => {
+								return (
+									<Project
+										url={project.url}
+										key={project.url}
+										fallbackImageSrc={project.fallBackImageSrc}
+										title={project.title}
+										description={project.description}
+									/>
+								);
+							})}
+						</div>
 					</div>
 				</section>
 				<section className="bg-stone-800 text-white h-screen w-full pt-10" id="contact" ref={contactSectionRef}>
 					<div className="w-full text-center mb-16 pt-20">
 						<h2 className="font-bold uppercase text-4xl ">Contact</h2>
-						<hr className='w-[2%] mx-auto mt-4 mb-4 rounded' />
+						<hr className="w-[2%] mx-auto mt-4 mb-4 rounded" />
 						<p className="max-w-prose mx-auto mt-4">
-							Shoot me a message! I&apos;d be delighted to hear from you. You can also find additional contact information on my resume. I&apos;ll respond to you as quickly as possible. Thanks!
+							Shoot me a message! I&apos;d be delighted to hear from you. You can also find additional
+							contact information on my resume. I&apos;ll respond to you as quickly as possible. Thanks!
 						</p>
 					</div>
 					<Form />
@@ -189,25 +209,34 @@ export default function Home() {
 			</main>
 
 			<footer className="flex-col h-[auto] bg-black text-white flex justify-center">
-				<div className='container mx-auto'>
-				<div className='flex md:flex-row md:justify-between md:w-full flex-col sm:w-[50%] items-center h-full'>
-					<div className='mt-6 mb-6'>
-						<h1 className='uppercase font-bold text-xl'>Sean Midgley</h1>
-						<p>Developed and deployed by me</p>
-						<br />
-						<p>sean.midgley.dev@gmail.com</p>
-					</div>
-					<div>
-						<div className='mt-6 mb-6'>
-						<h1 className='uppercase font-bold text-xl w-52 text-center'>Social</h1>
+				<div className="container mx-auto">
+					<div className="flex md:flex-row md:justify-between md:w-full flex-col sm:w-[50%] items-center h-full">
+						<div className="mt-6 mb-6">
+							<h1 className="uppercase font-bold text-xl">Sean Midgley</h1>
+							<p>Developed and deployed by me</p>
+							<br />
+							<p>sean.midgley.dev@gmail.com</p>
 						</div>
-						<div className='flex justify-between'>
-						{socialLinks.map((url) => {
-								return <SocialIcon key={url} url={url} bgColor="white" style={{ height: 35, width: 35}} target="_blank" rel="noopener noreferrer" />
-							})}
+						<div>
+							<div className="mt-6 mb-6">
+								<h1 className="uppercase font-bold text-xl w-52 text-center">Social</h1>
+							</div>
+							<div className="flex justify-between">
+								{socialLinks.map((url) => {
+									return (
+										<SocialIcon
+											key={url}
+											url={url}
+											bgColor="white"
+											style={{ height: 35, width: 35 }}
+											target="_blank"
+											rel="noopener noreferrer"
+										/>
+									);
+								})}
+							</div>
 						</div>
 					</div>
-				</div>
 				</div>
 			</footer>
 		</div>

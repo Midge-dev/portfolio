@@ -37,8 +37,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
   z-index: 1;
   top: 5rem;
   box-sizing: border-box;
-  height: 2vw;
-  width: 2vw;
+  height: 36px;
+  width: 36px;
   border-style: solid;
   border-color: black;
   border-width: 0px 1px 1px 0px;
@@ -58,22 +58,6 @@ background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBo
   width: 100%;
 }
 
-.ReactModal__Overlay {
-  opacity: 0;
-  transform: translateY(-100px);
-  transition: all 200ms ease-in-out;
-}
-
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-  transform: translateX(0px);
-}
-
-.ReactModal__Overlay--before-close {
-  opacity: 0;
-  transform: translateY(-100px);
-}
-
 textarea {
   resize: none;
 }
@@ -81,4 +65,18 @@ textarea {
 .react-pdf__Page__svg {
   width: 100% !important;
   height: auto !important;
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.0);
+  }
 }
