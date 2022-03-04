@@ -37,7 +37,7 @@ const Home = () => {
 								);
 							})}
 						</div>
-						<div className='relative mt-48'>
+						<div className="relative mt-48">
 							<div className="arrow" onClick={(e) => executeScroll(e, 'aboutme')} />
 						</div>
 					</div>
@@ -77,7 +77,7 @@ const Home = () => {
 								<HoverLink className="" onClick={executeScroll} id="contact">
 									Contact
 								</HoverLink>
-								<HoverLink type="link" url={'../public/SeanMidgley-Dev.pdf'}>
+								<HoverLink download type="link" url={'../public/SeanMidgley-Dev.pdf'}>
 									Download Resume
 								</HoverLink>
 							</div>
@@ -103,6 +103,7 @@ const Home = () => {
 								return (
 									<Project
 										url={project.url}
+										caseStudyRoute={project.caseStudyRoute}
 										key={project.url}
 										fallbackImageSrc={project.fallBackImageSrc}
 										title={project.title}

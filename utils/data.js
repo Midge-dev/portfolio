@@ -30,20 +30,24 @@ export const myProjects = {
 	project1: {
 		url: 'https://www.jackofallfades.co/',
 		fallBackImageSrc: 'https://www.jackofallfades.co/beardedclear.1e2f24cb.png',
+		projectHero: '/img/JOAF.png',
 		title: 'Jack of All Fades',
 		description:
 			'This project was developed for a local business in the Las Vegas area in order to facilitate the booking and scheduling of styling services online. It integrates Square which allows users to choose available services and appointment times, reschedule appointments, cancel appointments, and also receive text message reminders.',
 		overview: 'Lorem blah blah',
-		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Git', 'jQuery', 'Netlify' ]
+		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Git', 'jQuery', 'Netlify' ],
+		caseStudyRoute: '/projects/1'
 	},
 	project2: {
 		url: 'https://www.edwardwells.net/',
 		fallBackImageSrc: 'https://www.edwardwells.net/wells8.jpg',
+		projectHero: '/img/Wells.png',
 		title: 'In memory of Edward Wells',
 		description:
 			'This project was developed in memory of a dear friend. It allows loved ones and friends to dynamically leave comments, view photos, and support his family. A small project but one that was very personal for me.',
 		overview: 'Lorem blah blah',
-		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'JSX', 'NextJS', 'React', 'Tailwind CSS', 'Git', 'Netlify' ]
+		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'JSX', 'NextJS', 'React', 'Tailwind CSS', 'Git', 'Netlify' ],
+		caseStudyRoute: '/projects/2'
 	}
 };
 
