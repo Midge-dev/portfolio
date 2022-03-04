@@ -2,7 +2,7 @@ export const mySkills = [
 	'HTML',
 	'CSS',
 	'JavaScript',
-    'JSX',
+	'JSX',
 	'React',
 	'React Native',
 	'Redux',
@@ -11,6 +11,7 @@ export const mySkills = [
 	'NodeJS',
 	'Bootstrap',
 	'Tailwind CSS',
+	'Netlify',
 	'Git',
 	'Bash',
 	'Android',
@@ -19,29 +20,31 @@ export const mySkills = [
 	'Windows'
 ];
 
-export const joafSkills = [ 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Git' ];
-
-export const ewSkills = [ 'HTML', 'CSS', 'JavaScript', 'JSX', 'NextJS', 'React', 'Tailwind CSS', 'Git']
-
 export const socialLinks = [
 	'https://linkedin.com/in/seancmidgley',
 	'https://github.com/Midge-dev',
 	'https://twitter.com/midge_dev'
 ];
 
-export const projects = [
-	{
+export const myProjects = {
+	project1: {
 		url: 'https://www.jackofallfades.co/',
 		fallBackImageSrc: 'https://www.jackofallfades.co/beardedclear.1e2f24cb.png',
 		title: 'Jack of All Fades',
 		description:
-			'This project was developed for a local business in the Las Vegas area in order to facilitate the booking and scheduling of styling services online. It integrates Square which allows users to choose available services and appointment times, reschedule appointments, cancel appointments, and also receive text message reminders.'
+			'This project was developed for a local business in the Las Vegas area in order to facilitate the booking and scheduling of styling services online. It integrates Square which allows users to choose available services and appointment times, reschedule appointments, cancel appointments, and also receive text message reminders.',
+		overview: 'Lorem blah blah',
+		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Git', 'jQuery', 'Netlify' ]
 	},
-	{
+	project2: {
 		url: 'https://www.edwardwells.net/',
 		fallBackImageSrc: 'https://www.edwardwells.net/wells8.jpg',
 		title: 'In memory of Edward Wells',
 		description:
-			'This project was developed in memory of a dear friend. It allows loved ones and friends to dynamically leave comments, view photos, and support his family. A small project but one that was very personal for me.'
+			'This project was developed in memory of a dear friend. It allows loved ones and friends to dynamically leave comments, view photos, and support his family. A small project but one that was very personal for me.',
+		overview: 'Lorem blah blah',
+		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'JSX', 'NextJS', 'React', 'Tailwind CSS', 'Git', 'Netlify' ]
 	}
-];
+};
+
+export const projects = [ myProjects.project1, myProjects.project2 ];
