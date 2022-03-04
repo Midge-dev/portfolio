@@ -9,8 +9,8 @@ export default function Project({ url, fallbackImageSrc, title, description }) {
 			<div className='max-w-[65vw]'>
 				<h3 className="text-xl font-bold">{title}</h3>
 				<p className='py-6'>{description}</p>
-				<div className="flex justify-end">
-					<HoverLink>Case Study</HoverLink>
+				<div className="flex justify-end p-4">
+					<HoverLink className=''>Case Study</HoverLink>
 				</div>
 			</div>
 		</div>

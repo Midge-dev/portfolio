@@ -11,11 +11,11 @@ export default function HoverLink({
 	return type === 'button' ? (
 		<button
 			className={` ${bgColor} ${defaultClass} ${textColor} py-2 px-8 rounded-xl font-bold duration-500 transition-transform ease-out hover:-translate-y-2 drop-shadow-md`}
-			onClick={() => onClick(id)}
+			onClick={(e) => onClick(e, id)}
 		>
 			{children}
 		</button>
 	) : (
-		<a className={` ${bgColor} ${defaultClass} ${textColor} py-2 px-8 rounded-xl font-bold duration-300 transition-transform ease-out hover:-translate-y-2`} href={url} download >{children}</a>
+		<a className={`${bgColor} ${defaultClass} ${textColor} py-2 px-8 rounded-xl font-bold duration-300 transition-transform ease-out hover:-translate-y-2`} href={url} download >{children}</a>
 	)
 }

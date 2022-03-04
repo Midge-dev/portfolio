@@ -12,7 +12,7 @@ export default function Footer() {
     ];
 
   return (
-    <footer className="flex-col h-[auto] bg-black text-white flex justify-center">
+    <footer className="flex-col h-[auto] bg-black text-white flex justify-center px-4">
 				<div className="container mx-auto">
 					<div className="flex md:flex-row md:justify-between md:w-full flex-col sm:w-[50%] items-center h-full">
 						<div className="mt-6 mb-6">
