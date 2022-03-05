@@ -10,7 +10,7 @@ export default function Form() {
 		fetch('/api/contact', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: JSON.stringify(formData)
+			body: new URLSearchParams(formData).toString()
 		})
 			.then((res) => {
 				console.log('Form successfully submitted');
