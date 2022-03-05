@@ -10,8 +10,8 @@ export default function Project({ url, fallbackImageSrc, title, description, cas
 				<h3 className="text-xl font-bold">{title}</h3>
 				<p className='py-6'>{description}</p>
 				<div className="flex justify-end p-4">
-					<Link href={caseStudyRoute}>
-					<HoverLink className=''>Case Study</HoverLink>
+					<Link passHref href={caseStudyRoute}>
+					<HoverLink type='Link' url={caseStudyRoute} className=''>Case Study</HoverLink>
 					</Link>
 				</div>
 			</div>

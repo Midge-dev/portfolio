@@ -24,7 +24,6 @@ import Pill from '../../Components/Pill';
 export default function Project1(props) {
 	const router = useRouter();
 	const { id } = router.query;
-  console.log(router)
   
   // Grab our project information for that page, depending on the `id` from router
   const project = myProjects[`project${id}`] // on page projects/1 `id` will be 1

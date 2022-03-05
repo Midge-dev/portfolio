@@ -1,39 +1,118 @@
-import Image from 'next/image';
-import myImage from '../public/FB_IMG_1620331899007.jpg';
-import HoverLink from './HoverLink';
-import { executeScroll } from '../utils/scroll';
-import Link from 'next/link';
+import Image from "next/image";
+import myImage from "../public/FB_IMG_1620331899007.jpg";
+import HoverLink from "./HoverLink";
+import { executeScroll } from "../utils/scroll";
+import { useState } from "react";
+import Link from "next/link";
+import MenuIcon from "./MenuIcon";
+import { useRouter } from "next/router";
 
-export default function Header({ refs }) {
-	return (
-		<header className="text-stone-200 flex flex-wrap md:flex-nowrap bg-stone-800 p-4 sticky top-0 justify-between items-center z-10">
-			<div className="w-full">
-				<Link href={'/'}>
-					<a className="text-xl font-bold flex items-center md:pl-8 items-center justify-center">
-						<Image src={myImage} width={56} height={56} className=" rounded-full" alt="Sean" />
-						<span className="ml-4">Sean Midgley</span>
-					</a>
-				</Link>
-			</div>
-			<nav className="w-full">
-				<ul className="flex md:flex-row flex-col gap-4 items-center ">
-					<li>
-						<HoverLink bgColor="bg-transparant" id="aboutme" onClick={executeScroll}>
-							About Me
-						</HoverLink>
-					</li>
-					<li>
-						<HoverLink bgColor="bg-transparant" id="contact" onClick={executeScroll}>
-							Contact
-						</HoverLink>
-					</li>
-					<li>
-						<HoverLink bgColor="bg-transparant" id="projects" onClick={executeScroll}>
-							Projects
-						</HoverLink>
-					</li>
-				</ul>
-			</nav>
-		</header>
-	);
+export default function Header() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const router = useRouter();
+  const menuClick = async (e, id) => {
+    if(router.route === '/projects/[id]') {
+      await router.push('/');
+    }
+    setIsExpanded(false);
+    executeScroll(e, id);
+  }
+
+
+  return (
+    <>
+    <div className="sticky top-0 z-50">
+    <header className="text-stone-200 flex flexWrap md:flex-nowrap z-50 bg-stone-800 p-4 justify-between items-center z-50">
+        <div className="container mx-auto z-50">
+          <nav className="z-50">
+            <div className="px-2 sm:px-6 lg:px-8 z-50">
+              <div className="relative flex items-center justify-between h-16 z-50">
+                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden z-50">
+                  <MenuIcon onClick={setIsExpanded} isExpanded={isExpanded} />
+                </div>
+
+                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start md:justify-between">
+                  <div className="block sm:hidden">
+                    <Link href="/">
+                      <a className="font-bold text-2xl tracking-wider flex flex-wrap">
+                        Sean Midgley
+                      </a>
+                    </Link>
+                  </div>
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 z-50">
+                    <div className="ml-3 relative flex-shrink-0 flex items-center">
+                      <Image
+                        src={myImage}
+                        width={56}
+                        height={56}
+                        className=" rounded-full"
+                        alt="Sean"
+                      />
+                    </div>
+                  </div>
+                  <div className="hidden sm:block sm:ml-6">
+                    <div className="flex">
+                      {/* <!-- Current: "bg-gray-900 textWhite", Default: "text-gray-300 hover:bg-gray-700 hover:textWhite" --> */}
+                      <HoverLink
+                        bgColor="bg-transparant"
+                        id="aboutme"
+                        onClick={executeScroll}
+                      >
+                        About Me
+                      </HoverLink>
+                      <HoverLink
+                        bgColor="bg-transparant"
+                        id="contact"
+                        onClick={executeScroll}
+                      >
+                        Contact
+                      </HoverLink>
+                      <HoverLink
+                        bgColor="bg-transparant"
+                        id="projects"
+                        onClick={executeScroll}
+                      >
+                        Projects
+                      </HoverLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div
+        className={`sm:hidden transition -z-40 transform ease-out duration-300 absolute w-full bg-stone-600 left-0 ${
+          isExpanded ? `translate-y-0` : `translate-y-[-250px]`
+        }`}
+        id="mobile-menu"
+      >
+        <div className="px-2 pt-2 pb-3 flex flex-col">
+          <HoverLink
+            bgColor="bg-transparant"
+            id="aboutme"
+            onClick={menuClick}
+          >
+            About Me
+          </HoverLink>
+          <HoverLink
+            bgColor="bg-transparant"
+            id="contact"
+            onClick={menuClick}
+          >
+            Contact
+          </HoverLink>
+          <HoverLink
+            bgColor="bg-transparant"
+            id="projects"
+            onClick={menuClick}
+          >
+            Projects
+          </HoverLink>
+        </div>
+      </div>
+    </div>
+    </>
+  );
 }

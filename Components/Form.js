@@ -7,13 +7,18 @@ export default function Form() {
 		e.preventDefault();
 		console.log(formData);
 		// let formData = new FormData(myForm);
-		fetch("/", {
-		  method: "POST",
-		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		  body: new URLSearchParams(formData).toString(),
+		fetch('/api/contact', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: JSON.stringify(formData)
 		})
-		  .then(() => console.log("Form successfully submitted"))
-		  .catch((error) => alert(error));
+			.then((res) => {
+				console.log('Form successfully submitted');
+				if(res.status === 200) {
+					setFormData({ name: '', email: '', message: '' });
+				}
+			})
+			.catch((error) => alert(error));
 	};
 
 	const handleChange = (e) => {
@@ -34,15 +39,32 @@ export default function Form() {
 			>
 				<label className="mt-4">
 					<span className="text-stone-800 font-bold mb-2 block text-sm">Name</span>
-					<input onChange={handleChange} type="text" name="name" className="w-full p-4" placeholder="Enter Name" />
+					<input
+						onChange={handleChange}
+						type="text"
+						name="name"
+						className="w-full p-4"
+						placeholder="Enter Name"
+					/>
 				</label>
 				<label className="mt-4 block w-full">
 					<span className="text-stone-800 font-bold mb-2 block text-sm">Email</span>
-					<input onChange={handleChange} type="email" name="email" className="w-full p-4" placeholder="Enter Email" />
+					<input
+						onChange={handleChange}
+						type="email"
+						name="email"
+						className="w-full p-4"
+						placeholder="Enter Email"
+					/>
 				</label>
 				<label className="mt-4">
 					<span className="text-stone-800 font-bold mb-2 block text-sm">Message</span>
-					<textarea onChange={handleChange} name="message" className="w-full p-4 h-36" placeholder="Enter Message" />
+					<textarea
+						onChange={handleChange}
+						name="message"
+						className="w-full p-4 h-36"
+						placeholder="Enter Message"
+					/>
 				</label>
 				<HoverLink className="text-center mt-6">Submit</HoverLink>
 			</form>
