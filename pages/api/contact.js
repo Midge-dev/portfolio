@@ -9,5 +9,4 @@ export default function mailer (req, res) {
         },
         secure: true,
       })
-    console.log(req.body)
   }

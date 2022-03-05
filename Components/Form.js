@@ -4,21 +4,25 @@ import { useState } from 'react';
 export default function Form() {
 	const [ formData, setFormData ] = useState({ name: '', email: '', message: '' });
 	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log(formData);
 		// let formData = new FormData(myForm);
-		fetch('/api/contact', {
+		const obj = {
+			'form-name': 'contact',
+			...formData
+		};
+		fetch('/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: new URLSearchParams(formData).toString()
+			body: new URLSearchParams(obj).toString()
 		})
 			.then((res) => {
-				console.log('Form successfully submitted');
-				if(res.status === 200) {
-					setFormData({ name: '', email: '', message: '' });
-				}
+				setFormData({ name: '', email: '', message: '' });
 			})
-			.catch((error) => alert(error));
+			.catch((error) => alert(error))
+			.finally(() => {
+				
+			});
+		e.preventDefault();
+		e.stopPropagation();
 	};
 
 	const handleChange = (e) => {
@@ -32,17 +36,20 @@ export default function Form() {
 		<div className="max-w-prose mx-auto bg-stone-200 p-6 shadow-lg shadow-black text-black rounded-lg">
 			<form
 				className="flex flex-col w-full"
-				method="POST"
+				// method="POST"
 				data-netlify="true"
+				data-netlify-honeypot="bot-field"
 				onSubmit={handleSubmit}
 				name="contact"
 			>
+				<input type="hidden" name="form-name" value="contact" />
 				<label className="mt-4">
 					<span className="text-stone-800 font-bold mb-2 block text-sm">Name</span>
 					<input
 						onChange={handleChange}
 						type="text"
 						name="name"
+						value={formData.name}
 						className="w-full p-4"
 						placeholder="Enter Name"
 					/>
@@ -53,6 +60,7 @@ export default function Form() {
 						onChange={handleChange}
 						type="email"
 						name="email"
+						value={formData.email}
 						className="w-full p-4"
 						placeholder="Enter Email"
 					/>
@@ -62,6 +70,7 @@ export default function Form() {
 					<textarea
 						onChange={handleChange}
 						name="message"
+						value={formData.message}
 						className="w-full p-4 h-36"
 						placeholder="Enter Message"
 					/>
