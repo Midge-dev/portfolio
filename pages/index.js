@@ -79,6 +79,7 @@ const Home = () => {
 								</HoverLink>
 								<HoverLink download type="link" url={'../public/SeanMidgley-Dev.pdf'}>
 									Download Resume
+									{/* why the fuck is it not downloading? */}
 								</HoverLink>
 							</div>
 						</div>

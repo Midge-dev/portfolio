@@ -45,9 +45,9 @@ export default function Header() {
                       />
                       
                     </div>
-                    <div className="block px-8">
+                    <div className="pl-3 block">
                     <Link href="/">
-                      <a className="font-bold text-2xl tracking-wider flex flex-wrap">
+                      <a className="font-bold text-2xl flex flex-wrap">
                         Sean Midgley
                       </a>
                     </Link>
