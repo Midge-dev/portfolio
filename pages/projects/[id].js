@@ -43,12 +43,12 @@ export default function Project1(props) {
 					</div>
 				</div>
 			</div>
-			<div className="flex justify-center drop-shadow-xl py-8">
+			<div className="flex justify-center drop-shadow-xl py-8 px-4">
 				<Image className="rounded-xl" src={projectHero} width="960" height="540" alt="Jack of All Fades" />
 			</div>
 			<div className="container mx-auto py-8">
 				<h2 className="text-center font-bold text-4xl">Project Overview</h2>
-				<p className="py-8">
+				<p className="py-8 px-4">
 					{overview}
 				</p>
 				<h2 className="text-center font-bold text-4xl py-8">Tools Used</h2>

@@ -34,7 +34,7 @@ export const myProjects = {
 		title: 'Jack of All Fades',
 		description:
 			'This project was developed for a local business in the Las Vegas area in order to facilitate the booking and scheduling of styling services online. It integrates Square which allows users to choose available services and appointment times, reschedule appointments, cancel appointments, and also receive text message reminders.',
-		overview: 'Lorem blah blah',
+		overview: 'The idea here was to implement an already existing Square account into an informative and decadent mobile-first web environment. This was accomplished with a combination of HTML, CSS, Bootstrap, and JavaScript. The project houses the embedded Square interface inside of a modal that is accessible from every page via the "Book Now" button. ',
 		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Git', 'jQuery', 'Netlify' ],
 		caseStudyRoute: '/projects/1'
 	},

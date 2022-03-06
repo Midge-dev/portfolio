@@ -115,7 +115,7 @@ const Home = () => {
 						</div>
 					</div>
 				</section>
-				<section className="bg-stone-800 text-white h-full w-full pb-48" id="contact">
+				<section className="bg-stone-800 text-white h-full w-full pb-48 px-4" id="contact">
 					<div className="w-full text-center mb-16 pt-20">
 						<h2 className="font-bold uppercase text-4xl ">Contact</h2>
 						<hr className="w-[2%] mx-auto mt-4 mb-4 rounded" />

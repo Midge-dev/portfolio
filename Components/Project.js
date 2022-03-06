@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Project({ url, fallbackImageSrc, title, description, caseStudyRoute }) {
 	return (
 		<div className="flex justify-center flex-col md:flex-row gap-4 w-auto h-auto drop-shadow-md ">
-			<div className='w-[320px] sm:w-1/3 h-auto mx-auto'>
+			<div className='w-[320px] sm:w-1/3 h-auto mx-auto px-4'>
 			<LinkPreview url={url} width="100%" fallbackImageSrc={fallbackImageSrc} />
 			</div>
 			
