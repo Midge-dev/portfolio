@@ -20,14 +20,14 @@ const Home = () => {
 				<meta property="og:url" content="https://www.seanmidgley.dev/" />
 				<meta property="og:title" content="Sean Midgley" />
 				<meta property="og:description" content="Full-Stack Web Developer on a quest for glory" />
-				<meta property="og:image" content="/public/FB_IMG_1620331899007.jpg" />
+				<meta property="og:image" content="../public/FB_IMG_1620331899007.jpg" />
 
 				{/* <!-- Twitter --> */}
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta property="twitter:url" content="https://www.seanmidgley.dev/" />
 				<meta property="twitter:title" content="Sean Midgley" />
 				<meta property="twitter:description" content="Full-Stack Web Developer on a quest for glory" />
-				<meta property="twitter:image" content="/public/FB_IMG_1620331899007.jpg" />
+				<meta property="twitter:image" content="../public/FB_IMG_1620331899007.jpg" />
 				<link rel="icon" href="" />
 			</Head>
 
