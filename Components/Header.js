@@ -30,17 +30,12 @@ export default function Header() {
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden z-50">
                   <MenuIcon onClick={setIsExpanded} isExpanded={isExpanded} />
                 </div>
+                
 
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start md:justify-between">
-                  <div className="block sm:hidden">
-                    <Link href="/">
-                      <a className="font-bold text-2xl tracking-wider flex flex-wrap">
-                        Sean Midgley
-                      </a>
-                    </Link>
-                  </div>
+                  
                   <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 z-50">
-                    <div className="ml-3 relative flex-shrink-0 flex items-center">
+                    <div className="relative flex-shrink-0 flex items-end">
                       <Image
                         src={myImage}
                         width={56}
@@ -48,7 +43,15 @@ export default function Header() {
                         className=" rounded-full"
                         alt="Sean"
                       />
+                      
                     </div>
+                    <div className="block px-8">
+                    <Link href="/">
+                      <a className="font-bold text-2xl tracking-wider flex flex-wrap">
+                        Sean Midgley
+                      </a>
+                    </Link>
+                  </div>
                   </div>
                   <div className="hidden sm:block sm:ml-6">
                     <div className="flex">
@@ -83,7 +86,7 @@ export default function Header() {
         </div>
       </header>
       <div
-        className={`sm:hidden transition -z-40 transform ease-out duration-300 absolute w-full bg-stone-600 left-0 ${
+        className={`sm:hidden transition -z-40 transform ease-out duration-300 absolute w-full bg-stone-800 left-0 ${
           isExpanded ? `translate-y-0` : `translate-y-[-250px]`
         }`}
         id="mobile-menu"

@@ -9,9 +9,9 @@ export default function Project({ url, fallbackImageSrc, title, description, cas
 			<LinkPreview url={url} width="100%" fallbackImageSrc={fallbackImageSrc} />
 			</div>
 			
-			<div className='w-2/3'>
-				<h3 className="text-xl font-bold">{title}</h3>
-				<p className='py-6 text-center'>{description}</p>
+			<div className='w-2/3 mx-auto'>
+				<h3 className="text-xl font-bold sm:text-center">{title}</h3>
+				<p className='py-6 w-full'>{description}</p>
 				<div className="flex justify-end sm:justify-center p-4">
 					<Link passHref href={caseStudyRoute}>
 					<HoverLink type='Link' url={caseStudyRoute} className='sm:flex justify-center'>Case Study</HoverLink>
