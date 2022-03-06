@@ -34,7 +34,8 @@ export const myProjects = {
 		title: 'Jack of All Fades',
 		description:
 			'This project was developed for a local business in the Las Vegas area in order to facilitate the booking and scheduling of styling services online. It integrates Square which allows users to choose available services and appointment times, reschedule appointments, cancel appointments, and also receive text message reminders.',
-		overview: 'The idea here was to implement an already existing Square account into an informative and decadent mobile-first web environment. This was accomplished with a combination of HTML, CSS, Bootstrap, and JavaScript. The project houses the embedded Square interface inside of a modal that is accessible from every page via the "Book Now" button. ',
+		overview:
+			'The idea here was to implement an already existing Square account into an informative and stylish mobile-first web environment. This was accomplished with a combination of HTML, CSS, Bootstrap, and JavaScript. The project houses the embedded Square booking flow inside of a modal that is accessible from every page via the "Book Now" button. This way clients would easily be able to book an appointment. Once an appointment is made, the business is notified and automatically gets a Google Calender entry from Square. This simplified the way the business handled scheduling by allowing Square to do the heavy lifting and allowing clients to book, reschedule and cancel their own appointments.',
 		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Git', 'jQuery', 'Netlify' ],
 		caseStudyRoute: '/projects/1'
 	},
@@ -45,8 +46,8 @@ export const myProjects = {
 		title: 'In memory of Edward Wells',
 		description:
 			'This project was developed in memory of a dear friend. It allows loved ones and friends to dynamically leave comments, view photos, and support his family. A small project but one that was very personal for me.',
-		overview: 'Lorem blah blah',
-		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'JSX', 'NextJS', 'React', 'Tailwind CSS', 'Git', 'Netlify' ],
+		overview: 'This project was a special one and was influenced by the family. It is a simple NextJS app that implements Supabase, an open source Firebase alternative, to serve as a backend database and storage solution. The purpose for this was to add the ability to post stories and memories and have them displayed as part of the page. NextJS, React, and Tailwind CSS were used to build the project and Netlify was used to deploy it.',
+		toolsUsed: [ 'HTML', 'CSS', 'JavaScript', 'JSX', 'NextJS', 'React', 'Tailwind CSS', 'Git', 'Netlify', 'Supabase' ],
 		caseStudyRoute: '/projects/2'
 	}
 };
