@@ -80,7 +80,7 @@ const Home = () => {
 								projects for community members, consulted for startups, and collaborated with talented
 								people to create digital products for both business and consumer use. I love to code!
 								Most recently I graduated from the Full Stack Web and Mobile Development Bootcamp
-								offered by Nucamp where I was able to expand my working knowledge of different
+								offered by Nucamp where I was able to expand my working knowledge of front end and back end
 								technologies and programming languages.
 							</p>
 							<p className="mt-4">
