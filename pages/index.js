@@ -35,7 +35,7 @@ const Home = () => {
 				<section id="top" className="bg-stone-200 h-screen w-full flex justify-center items-center ">
 					<div className="text-center">
 						<h1 className="font-sans text-7xl font-bold">Hi, I&apos;m Sean</h1>
-						<p className="mt-8 font-bold">I&apos;m a Full-Stack Developer</p>
+						<p className="mt-8 font-bold">I&apos;m a Front-End Developer</p>
 						<HoverLink onClick={executeScroll} id="contact">
 							Get in touch!
 						</HoverLink>
@@ -75,12 +75,12 @@ const Home = () => {
 						<div className="md:pr-6 p-4">
 							<h3 className="font-bold text-xl ">Get to know me!</h3>
 							<p className="mt-6">
-								Hey! It&apos;s Sean Midgley and I&apos;m a Full Stack Web Developer located in Las
-								Vegas. I build really cool websites like this one! I&apos;ve done remote freelance
-								projects for community members, consulted for startups, and collaborated with talented
-								people to create digital products for both business and consumer use. I love to code!
-								Most recently I graduated from the Full Stack Web and Mobile Development Bootcamp
-								offered by Nucamp where I was able to expand my working knowledge of front end and back end
+								Hey! It&apos;s Sean Midgley and I&apos;m a Front-End Web Developer located in Las Vegas.
+								I build really cool websites like this one! I&apos;ve done remote freelance projects for
+								community members, consulted for startups, and collaborated with talented people to
+								create digital products for both business and consumer use. I love to code! Most
+								recently I graduated from the Full Stack Web and Mobile Development Bootcamp offered by
+								Nucamp where I was able to expand my working knowledge of front end and back end
 								technologies and programming languages.
 							</p>
 							<p className="mt-4">
@@ -134,7 +134,7 @@ const Home = () => {
 						<h2 className="font-bold uppercase text-4xl ">Contact</h2>
 						<hr className="w-[2%] mx-auto mt-4 mb-4 rounded" />
 						<p className="max-w-prose mx-auto mt-4">
-							Shoot me a message! I&apos;d be delighted to hear from you. You can also find additional
+							Shoot me a message! I&apos;d be delighted to hear from you! You can also find additional
 							contact information on my resume. I&apos;ll respond to you as quickly as possible. Thanks!
 						</p>
 					</div>
